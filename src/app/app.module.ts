@@ -10,6 +10,8 @@ import { QuantitySelectionComponent } from './quantity-selection/quantity-select
 import { ChooseDesignDecorComponent } from './choose-design-decor/choose-design-decor.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PaymentCardItemComponent } from './payment-card-item/payment-card-item.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     QuantitySelectionComponent,
     ChooseDesignDecorComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    PaymentComponent,
+    PaymentCardItemComponent
   ],
   imports: [
     BrowserModule,

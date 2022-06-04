@@ -1,0 +1,226 @@
+<div class="core-page-wrapper">
+  <div class="template-image">
+    <div class="content-upsale">
+      <span class="medium-title"
+        ><b> <span class="large-title">Thanh toán</span> </b></span
+      >
+      <br />
+      <hr />
+      <br />
+      <div class="content-upsale-box">
+        <span class="medium-title"><b>Thông tin người mua</b></span>
+        <div class="upsale-content">
+          <div>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              style="width: 262.5px"
+              class="size-input"
+              placeholder="Họ và tên"
+            />
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              style="width: 262.5px"
+              class="size-input"
+              placeholder="Email"
+            />
+          </div>
+
+          <div style="margin-left: 49px; font-size: 20px">
+            <div style="margin-bottom: 29px">
+              <span style="margin-right: 10px">Giới tính</span>
+              <div class="radio-item">
+                <input
+                  type="radio"
+                  id="ritema"
+                  name="ritem"
+                  value="ropt1"
+                  checked
+                />
+                <label for="ritema"><span>Nam</span></label>
+              </div>
+
+              <div class="radio-item">
+                <input type="radio" id="ritemb" name="ritem" value="ropt2" />
+                <label for="ritemb"><span>Nữ</span></label>
+              </div>
+            </div>
+
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              style="width: 262.5px"
+              class="size-input"
+              placeholder="Số điện thoại"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="content-upsale-box">
+        <span class="medium-title"
+          ><b>Thông tin tài khoản thanh toán (VISA)</b></span
+        >
+        <div>
+          <!-- Content -->
+          <div class="content-upper-visa">
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              style="width: 366.5px"
+              class="size-input"
+              placeholder="Card number"
+            />
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              style="width: 170.5px; margin-left: 49px"
+              class="size-input"
+              placeholder="CVC"
+            />
+          </div>
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            style="width: 636px"
+            class="size-input"
+            placeholder="Card holder name"
+          />
+        </div>
+        <span style="margin-right: 10px; font-size: 20px">Expiration date</span>
+        <select class="size-select" name="cars" id="cars">
+          <option selected value="">Ngày</option>
+          <option value="volvo">M nam</option>
+          <option value="saab">M nữ</option>
+          <option value="opel">L nam</option>
+          <option value="audi">L nữ</option>
+        </select>
+        <select class="size-select" name="cars" id="cars">
+          <option selected value="">Tháng</option>
+          <option value="saab">M nữ</option>
+          <option value="opel">L nam</option>
+          <option value="audi">L nữ</option>
+        </select>
+        <select class="size-select" name="cars" id="cars">
+          <option selected value="">Năm</option>
+          <option value="saab">M nữ</option>
+          <option value="opel">L nam</option>
+          <option value="audi">L nữ</option>
+        </select>
+      </div>
+      <br />
+      <div class="content-upsale-box">
+        <span class="medium-title"><b>Vận chuyển</b></span>
+        <br />
+        <br />
+        <div style="background-color: #f6f6f9; padding: 16px 20px">
+          <span>Địa chỉ nhận hàng</span>
+          <br />
+          <div style="display: flex">
+            <select
+              class="size-select"
+              name="cars"
+              id="cars"
+              style="width: 100%; font-size: 16px"
+            >
+              <option selected value="">Tỉnh/Thành phố</option>
+              <option value="volvo">M nam</option>
+              <option value="saab">M nữ</option>
+              <option value="opel">L nam</option>
+              <option value="audi">L nữ</option>
+            </select>
+            <select
+              class="size-select"
+              name="cars"
+              id="cars"
+              style="width: 100%; font-size: 16px"
+            >
+              <option selected value="">Quận/Huyện</option>
+              <option value="saab">M nữ</option>
+              <option value="opel">L nam</option>
+              <option value="audi">L nữ</option>
+            </select>
+            <select
+              class="size-select"
+              name="cars"
+              id="cars"
+              style="width: 100%; font-size: 16px"
+            >
+              <option selected value="">Phường/Xã</option>
+              <option value="saab">M nữ</option>
+              <option value="opel">L nam</option>
+              <option value="audi">L nữ</option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <div class="radio-item">
+          <input
+            type="radio"
+            id="xyz"
+            name="xy"
+            value="yourLocation"
+            (click)="emitChoice('you')"
+            checked
+          />
+          <label for="xyz"
+            ><span
+              >Vận chuyển tới địa điểm của bạn (mất phí vận chuyển)</span
+            ></label
+          >
+        </div>
+        <br />
+        <div class="radio-item">
+          <input
+            type="radio"
+            id="abc"
+            name="xy"
+            value="yourShp"
+            (click)="emitChoice('shop')"
+          />
+          <label for="abc"
+            ><span
+              >Lấy hàng tại chi nhánh Yody gần nhất (miễn phí vận chuyển)</span
+            ></label
+          >
+        </div>
+        <p
+          *ngIf="defaultChoice === 'shop'"
+          style="display: flex; align-items: center; margin-left: 24px"
+        >
+          <img src="assets/images/location.png" style="margin-right: 6px" />
+          <span
+            ><u
+              ><b
+                >308 Phan Trọng Tuệ, Xã Thanh Liệt, Huyện Thanh Trì, TP Hà
+                Nội</b
+              ></u
+            ></span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="right-options-wrapper" style="width: 34%">
+    <span class="medium-title"><b>Đơn hàng của bạn</b></span>
+    <app-payment-card-item></app-payment-card-item>
+
+    <div class="action-div">
+      <p style="text-align: center"><span>Tổng tiền cần thanh toán</span></p>
+      <p style="text-align: center">
+        <span class="txt-total-cost">960.000đ</span>
+      </p>
+      <div style="display: flex; justify-content: space-around">
+        <button class="action-common back">Trở về</button>
+        <button class="action-common continue">Đặt hàng</button>
+      </div>
+    </div>
+  </div>
+</div>
