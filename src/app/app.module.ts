@@ -12,8 +12,7 @@ import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentCardItemComponent } from './payment-card-item/payment-card-item.component';
-import { HttpClientModule } from '@angular/common/http';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -26,9 +25,13 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     CartComponent,
     CartItemComponent,
     PaymentComponent,
-    PaymentCardItemComponent,
+    PaymentCardItemComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

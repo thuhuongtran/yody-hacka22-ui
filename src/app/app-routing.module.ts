@@ -13,6 +13,7 @@ const routes: Routes = [
   {
     path: 'quantity-selection',
     component: QuantitySelectionComponent,
+    data: {}
   },
   {
     path: 'cart',
@@ -23,6 +24,7 @@ const routes: Routes = [
     component: FirstCorePageComponent,
   },
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
