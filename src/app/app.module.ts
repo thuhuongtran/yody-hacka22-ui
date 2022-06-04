@@ -18,7 +18,7 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     DesignCardComponent,
     ChooseDesignDecorComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
   ],
   imports: [
     BrowserModule,
