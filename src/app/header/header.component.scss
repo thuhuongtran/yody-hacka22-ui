@@ -1,0 +1,27 @@
+hr {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+  opacity: 0.3;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-logo {
+  margin-left: 120px;
+}
+
+.right-menu {
+  margin-left: auto;
+  margin-right: 123px;
+
+  img {
+    margin-left: 25px;
+  }
+}
