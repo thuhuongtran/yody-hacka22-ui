@@ -13,6 +13,7 @@ const routes: Routes = [
   {
     path: 'quantity-selection',
     component: QuantitySelectionComponent,
+    data: {}
   },
   {
     path: 'cart',

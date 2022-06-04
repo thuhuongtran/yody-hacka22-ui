@@ -6,11 +6,8 @@ import {ActivatedRoute, Router} from "@angular/router";
   templateUrl: './quantity-selection.component.html',
   styleUrls: ['./quantity-selection.component.scss'],
 })
-
-
 export class QuantitySelectionComponent implements OnInit {
   constructor(private router: Router, private dataRoute: ActivatedRoute) {
-    console.log(router.getCurrentNavigation()?.extras.state);
   }
 
   upsaleStatus: string = 'family';
@@ -22,6 +19,7 @@ export class QuantitySelectionComponent implements OnInit {
   sizes = [];
 
   ngOnInit(): void {
+    console.log(this.router.getCurrentNavigation()?.extras.state);
   }
 
   switchUpsaleStatus(status: string): void {
