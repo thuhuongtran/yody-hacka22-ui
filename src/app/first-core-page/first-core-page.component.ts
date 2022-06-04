@@ -36,11 +36,4 @@ export class FirstCorePageComponent implements OnInit {
       console.log(response);
     });
   }
-
-  // clickOnContinue() {
-  //   this.shirt = {
-  //     title: "test"
-  //   }
-  //   this.router.navigateByUrl('/quantity-selection', {state: this.shirt});
-  // }
 }
