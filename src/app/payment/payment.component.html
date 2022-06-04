@@ -218,8 +218,10 @@
         <span class="txt-total-cost">960.000đ</span>
       </p>
       <div style="display: flex; justify-content: space-around">
-        <button class="action-common back">Trở về</button>
-        <button class="action-common continue">Đặt hàng</button>
+        <button class="action-common back" routerLink="/cart">Trở về</button>
+        <button class="action-common continue" (click)="save()">
+          Đặt hàng
+        </button>
       </div>
     </div>
   </div>

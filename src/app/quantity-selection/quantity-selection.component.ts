@@ -5,10 +5,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './quantity-selection.component.html',
   styleUrls: ['./quantity-selection.component.scss'],
 })
+
+
 export class QuantitySelectionComponent implements OnInit {
   constructor() {}
 
   upsaleStatus: string = 'family';
+
+  totalProducts = 0;
+
+  products = [];
 
   sizes = [];
 
