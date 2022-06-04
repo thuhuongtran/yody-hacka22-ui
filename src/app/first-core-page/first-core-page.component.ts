@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {YodyServiceService} from "../yody-service.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-first-core-page',
@@ -7,8 +8,12 @@ import {YodyServiceService} from "../yody-service.service";
   styleUrls: ['./first-core-page.component.scss']
 })
 export class FirstCorePageComponent implements OnInit {
+  shirt: {};
 
-  constructor(private yodyService: YodyServiceService) { }
+  constructor(private yodyService: YodyServiceService,
+              private router: Router) {
+    this.shirt = {};
+  }
 
   ngOnInit(): void {
   }
@@ -30,5 +35,12 @@ export class FirstCorePageComponent implements OnInit {
         console.log(response)
       }
     )
+  }
+
+  clickOnContinue() {
+    this.shirt = {
+      title: "test"
+    }
+    this.router.navigateByUrl('/quantity-select', {state: this.shirt});
   }
 }

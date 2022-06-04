@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-quantity-selection',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class QuantitySelectionComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router, private dataRoute: ActivatedRoute) {
+    console.log(router.getCurrentNavigation()?.extras.state);
+  }
 
   upsaleStatus: string = 'family';
 
@@ -18,7 +21,8 @@ export class QuantitySelectionComponent implements OnInit {
 
   sizes = [];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   switchUpsaleStatus(status: string): void {
     this.upsaleStatus = status;
