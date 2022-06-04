@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FirstCorePageComponent } from './first-core-page/first-core-page.component';
 import { DesignCardComponent } from './design-card/design-card.component';
+import { QuantitySelectionComponent } from './quantity-selection/quantity-selection.component';
 import { ChooseDesignDecorComponent } from './choose-design-decor/choose-design-decor.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
@@ -16,6 +17,7 @@ import { CartItemComponent } from './cart-item/cart-item.component';
     HeaderComponent,
     FirstCorePageComponent,
     DesignCardComponent,
+    QuantitySelectionComponent,
     ChooseDesignDecorComponent,
     CartComponent,
     CartItemComponent,
