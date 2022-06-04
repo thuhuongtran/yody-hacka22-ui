@@ -24,9 +24,15 @@
     <hr />
     <span class="small-title">Loại áo</span>
     <div class="size-num">
-      <button class="size-button">T-shirt</button>
-      <button class="size-button">Hoodie</button>
-      <button class="size-button">Polo</button>
+      <button class="size-button" (click)="changeShirtType('T-shirt')" [ngStyle]="">
+        T-shirt
+      </button>
+      <button class="size-button" (click)="changeShirtType('Hoddie')">
+        Hoodie
+      </button>
+      <button class="size-button" (click)="changeShirtType('Polo')">
+        Polo
+      </button>
     </div>
     <hr />
     <span class="small-title">Tải lên thiết kế</span>
