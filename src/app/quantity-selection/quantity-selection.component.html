@@ -93,31 +93,53 @@
         dẫn chọn size</span
       >
     </div>
-    <div class="size-num">
-      <div class="input-select-size">
-        <select class="size-select" name="cars" id="cars">
-          <option value="volvo">M nam</option>
-          <option value="saab">M nữ</option>
-          <option value="opel">L nam</option>
-          <option value="audi">L nữ</option>
-        </select>
-        <input
-          type="text"
-          id="fname"
-          name="fname"
-          class="size-input"
-          placeholder="Nhập số lượng"
-        />
+    <div *ngIf="upsaleStatus === 'standard'">
+      <div *ngFor="let quantitySize of pageResult.sizes">
+        <div class="size-num">
+          <div class="input-select-size">
+            <select
+              class="size-select"
+              name="cars"
+              id="cars"
+              (change)="onSizeChange($event, quantitySize.id)"
+            >
+              <option value="" selected>Size --</option>
+              <option value="mnam">M nam</option>
+              <option value="mnu">M nữ</option>
+              <option value="lnam">L nam</option>
+              <option value="lnu">L nữ</option>
+            </select>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              (change)="onQuantityChange($event, quantitySize.id)"
+              class="size-input"
+              placeholder="Nhập số lượng"
+            />
+          </div>
+          <div
+            class="delete-size"
+            style="cursor: pointer"
+            (click)="removeSize(quantitySize.id)"
+          >
+            <img src="assets/images/delete.png" />
+          </div>
+        </div>
       </div>
-      <div class="delete-size" style="cursor: pointer">
-        <img src="assets/images/delete.png" />
-      </div>
+      <p style="color: #fcaf17; cursor: pointer" (click)="addSize()">
+        <span>+ Thêm size</span>
+      </p>
     </div>
-    <p style="color: #fcaf17; cursor: pointer"><span>+ Thêm size</span></p>
 
     <div *ngIf="upsaleStatus === 'family'" class="upsale-div">
       <span class="small-title" style="color: #2a2a86"
         >Ưu đãi cho gia đình (20%)</span
+      >
+      <span
+        style="position: absolute; right: 10%; top: 8%; cursor: pointer"
+        (click)="backToStandard()"
+        ><b>X</b></span
       >
       <div class="size-num">
         <div class="input-select-size">
@@ -306,11 +328,20 @@
           />
         </div>
       </div>
+      <p style="color: #fcaf17; cursor: pointer">
+        <span>+ Thêm size</span>
+      </p>
     </div>
 
     <div class="action-div">
-      <button class="action-common back" routerLink="/">Trở về</button>
-      <button class="action-common continue" routerLink="/cart">
+      <button class="action-common back" routerLink="/" [state]="previousPage">
+        Trở về
+      </button>
+      <button
+        class="action-common continue"
+        routerLink="/cart"
+        [state]="pageResult"
+      >
         Thêm vào giỏ hàng
       </button>
     </div>
