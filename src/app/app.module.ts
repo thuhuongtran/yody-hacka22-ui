@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule, OnInit} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { PaymentCardItemComponent } from './payment-card-item/payment-card-item.component';
 import {HttpClientModule} from "@angular/common/http";
 import {AngularDraggableModule} from "angular2-draggable";
+
 
 @NgModule({
   declarations: [
@@ -32,9 +33,10 @@ import {AngularDraggableModule} from "angular2-draggable";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AngularDraggableModule
+    AngularDraggableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
