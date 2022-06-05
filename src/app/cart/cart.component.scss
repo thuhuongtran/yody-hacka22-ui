@@ -44,6 +44,28 @@ hr {
   width: 60%;
 }
 
+.action-common {
+  min-width: 115px;
+  height: 48px;
+  padding: 0px 40px;
+  border-radius: 2px;
+  font-family: "SVN-Gilroy";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  border: none;
+}
+
+.back {
+  background-color: white;
+}
+
+.continue {
+  background-color: #2a2a86;
+  margin-left: 180px;
+  color: white;
+}
+
 .txt-intro {
   font-weight: 600;
   font-size: 20px;
