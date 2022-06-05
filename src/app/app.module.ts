@@ -13,6 +13,7 @@ import { CartItemComponent } from './cart-item/cart-item.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentCardItemComponent } from './payment-card-item/payment-card-item.component';
 import {HttpClientModule} from "@angular/common/http";
+import {AngularDraggableModule} from "angular2-draggable";
 
 @NgModule({
   declarations: [
@@ -25,12 +26,13 @@ import {HttpClientModule} from "@angular/common/http";
     CartComponent,
     CartItemComponent,
     PaymentComponent,
-    PaymentCardItemComponent
+    PaymentCardItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularDraggableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

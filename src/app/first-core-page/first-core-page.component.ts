@@ -12,6 +12,7 @@ export class FirstCorePageComponent implements OnInit {
   shirtColor: string = 'white';
   yourDesign: any;
   imageOutput: any;
+  coreShirtImg: any
 
   firstPage = {
     shirtType: 'T-shirt',
@@ -22,7 +23,9 @@ export class FirstCorePageComponent implements OnInit {
   constructor(
     private yodyService: YodyServiceService,
     private dataRoute: ActivatedRoute
-  ) {}
+  ) {
+    this.coreShirtImg = "assets/images/front-shirt.png";
+  }
 
   ngOnInit(): void {
     this.dataRoute.paramMap.subscribe(() => {
@@ -63,5 +66,20 @@ export class FirstCorePageComponent implements OnInit {
     this.yodyService.searchDesignsByTags(tags).subscribe((response) => {
       console.log(response);
     });
+  }
+
+  // clickOnContinue() {
+  //   this.shirt = {
+  //     title: "test"
+  //   }
+  //   this.router.navigateByUrl('/quantity-select', {state: this.shirt});
+  // }
+
+  changeToBackShirt() {
+    this.coreShirtImg = "assets/images/back-shirt.png"
+  }
+
+  changeToFrontShirt() {
+    this.coreShirtImg = "assets/images/front-shirt.png"
   }
 }
