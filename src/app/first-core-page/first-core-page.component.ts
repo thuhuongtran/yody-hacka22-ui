@@ -12,11 +12,16 @@ export class FirstCorePageComponent implements OnInit {
 
   shirt: {};
   coreShirtImg: any
+  coreColor: string = "white"
+  thumnailImgFront: any;
+  thumnailImgBack: any;
 
   constructor(private yodyService: YodyServiceService,
               private router: Router) {
     this.shirt = {title: 'test'};
     this.coreShirtImg = "assets/images/front-shirt.png";
+    this.thumnailImgFront = "assets/images/front-shirt.png";
+    this.thumnailImgBack = "assets/images/back-shirt.png";
   }
 
   ngOnInit(): void {
@@ -49,10 +54,39 @@ export class FirstCorePageComponent implements OnInit {
   // }
 
   changeToBackShirt() {
-    this.coreShirtImg = "assets/images/back-shirt.png"
+    if (this.coreColor == "white") {
+      this.coreShirtImg = "assets/images/back-shirt.png";
+      this.thumnailImgFront = "assets/images/front-shirt.png";
+      this.thumnailImgBack = "assets/images/back-shirt.png";
+    } else {
+      this.coreShirtImg = "assets/images/blue-back.png"
+      this.thumnailImgFront = "assets/images/blue-front.png";
+      this.thumnailImgBack = "assets/images/blue-back.png";
+    }
   }
 
   changeToFrontShirt() {
+    if(this.coreColor == "white") {
+      this.coreShirtImg = "assets/images/front-shirt.png";
+      this.thumnailImgFront = "assets/images/front-shirt.png";
+      this.thumnailImgBack = "assets/images/back-shirt.png";
+    } else {
+      this.coreShirtImg = "assets/images/blue-front.png"
+      this.thumnailImgFront = "assets/images/blue-front.png";
+      this.thumnailImgBack = "assets/images/blue-back.png";
+    }
+  }
+
+  changeToCoreBlueShirt() {
+    this.coreColor = "blue"
+    this.coreShirtImg = "assets/images/blue-front.png"
+    this.thumnailImgFront = "assets/images/blue-front.png";
+    this.thumnailImgBack = "assets/images/blue-back.png";  }
+
+  changeToCoreWhiteShirt() {
+    this.coreColor = "white"
     this.coreShirtImg = "assets/images/front-shirt.png"
+    this.thumnailImgFront = "assets/images/front-shirt.png";
+    this.thumnailImgBack = "assets/images/back-shirt.png";
   }
 }

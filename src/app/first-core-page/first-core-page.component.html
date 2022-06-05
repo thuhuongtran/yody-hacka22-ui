@@ -5,8 +5,8 @@
       <span class="txt-detail">/1 áo</span>
     </div>
     <div class="shirt-group">
-      <img class="front-shirt" src="assets/images/front-shirt.png" (click)="changeToFrontShirt()"/>
-      <img class="back-shirt" src="assets/images/back-shirt.png" (click)="changeToBackShirt()"/>
+      <img class="front-shirt" src="{{this.thumnailImgFront}}" (click)="changeToFrontShirt()"/>
+      <img class="back-shirt" src="{{this.thumnailImgBack}}" (click)="changeToBackShirt()"/>
     </div>
     <img class="main-img" src="{{this.coreShirtImg}}"/>
     <div [ngDraggable]="true" [ngResizable]="true">
@@ -17,8 +17,8 @@
       <button class="right-btn">Xem trước</button>
     </div>
     <div class="round-button-wrapper">
-      <button class="round-btn white-btn"></button>
-      <button class="round-btn blue-btn"></button>
+      <button class="round-btn white-btn" (click)="changeToCoreWhiteShirt()"></button>
+      <button class="round-btn blue-btn" (click)="changeToCoreBlueShirt()"></button>
       <button class="round-btn black-btn"></button>
     </div>
   </div>
