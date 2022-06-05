@@ -16,6 +16,8 @@
 }
 
 .right-options-wrapper {
+  height: 696px;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   margin-left: 56px;
@@ -83,9 +85,13 @@ hr {
   height: 80px;
   background-color: white;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   border: 1px dashed #333333;
   border-width: 1.8px;
+}
+
+.upload-button:hover {
+  opacity: 0.1;
 }
 
 .right-img {
@@ -98,7 +104,7 @@ hr {
 
 .round-button {
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width: 416px;
   height: 48px;
   border: 1px solid #808080;
@@ -112,21 +118,35 @@ hr {
   color: #b3b3b3;
   text-align: left;
   padding-left: 20px;
+}
 
-  img {
-    margin-top: 2px;
-    margin-left: 200px;
+.upload-file-text {
+  display: flex;
+  flex-flow: column wrap;
+  margin-left: 10px;
+
+  .below-text-file {
+    margin-top: 10px;
+  }
+
+  span {
+    font-weight: 500;
+    font-size: 14px;
+    color: #333333;
   }
 }
 
 .design-card-div {
   margin-top: 90px;
+  width: 500px;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   margin-bottom: 150px;
 
   .design-item {
     margin-right: 28px;
+    margin-top: 20px;
+    cursor: pointer;
   }
 }
 
@@ -170,6 +190,7 @@ hr {
   -ms-transform: translate(-10%, -10%);
   margin-top: 52px;
   margin-left: 121px;
+
   img {
     padding: 0;
     cursor: pointer;
@@ -207,15 +228,6 @@ hr {
     font-style: normal;
     font-weight: 510;
     font-size: 20px;
-  }
-
-  .left-btn {
-    background-color: #2a2a86;
-    color: white;
-  }
-
-  .right-btn {
-    background-color: white;
   }
 }
 
@@ -279,9 +291,19 @@ hr {
 .design-img {
   padding: 10px !important;
   position: absolute;
-  transform: translate(260%, -230%);
   display: inline-block;
+  width: 121px;
+  height: 184px;
   margin: auto;
-  border: 1px dashed black;
   cursor: pointer;
+}
+
+.none-border-img {
+  border: none;
+  transform: translate(264%, -233%);
+}
+
+.border-img {
+  border: 1px dashed black;
+  transform: translate(260%, -230%);
 }

@@ -52,7 +52,8 @@ export class PaymentComponent implements OnInit {
 
   constructor(
     private dataRoute: ActivatedRoute,
-    private yodyService: YodyServiceService
+    private yodyService: YodyServiceService,
+    private route: Router
   ) {}
 
   ngOnInit(): void {
@@ -107,14 +108,14 @@ export class PaymentComponent implements OnInit {
   }
 
   save() {
-    // Swal.fire({
-    //   icon: 'success',
-    //   title: 'Thành công',
-    //   html: '<span>Đặt hàng thành công!</span>',
-    //   showConfirmButton: true,
-    // }).then((result) => {
-    //   this.route.navigate(['/']);
-    // });
+    Swal.fire({
+      icon: 'success',
+      title: 'Thành công',
+      html: '<span>Đặt hàng thành công!</span>',
+      showConfirmButton: true,
+    }).then((result) => {
+      this.route.navigate(['/']);
+    });
     let response = {
       city: this.selectedCity,
       district: this.selectedDistrict,

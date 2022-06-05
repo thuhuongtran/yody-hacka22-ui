@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule, OnInit} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,7 @@ import { PaymentCardItemComponent } from './payment-card-item/payment-card-item.
 import { HttpClientModule } from '@angular/common/http';
 import { AngularDraggableModule } from 'angular2-draggable';
 import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -39,4 +40,5 @@ import { FormsModule } from '@angular/forms';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

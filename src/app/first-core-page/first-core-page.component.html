@@ -5,46 +5,46 @@
       <span class="txt-detail">/1 áo</span>
     </div>
     <div class="shirt-group">
-      <img
-        class="front-shirt"
-        src="assets/images/front-shirt.png"
-        (click)="changeToFrontShirt()"
-      />
-      <img
-        class="back-shirt"
-        src="assets/images/back-shirt.png"
-        (click)="changeToBackShirt()"
-      />
+      <img class="front-shirt" src="{{this.thumnailImgFront}}" (click)="changeToFrontShirt()"/>
+      <img class="back-shirt" src="{{this.thumnailImgBack}}" (click)="changeToBackShirt()"/>
     </div>
     <img class="main-img" src="{{ this.coreShirtImg }}" />
     <div [ngDraggable]="true" [ngResizable]="true">
-      <img class="design-img" src="assets/images/schoolboy.png" />
+      <img class="design-img" [ngClass]="designMode" [src]="designImg">
     </div>
     <div class="group-design-button">
-      <button class="left-btn">Thiết kế</button>
-      <button class="right-btn">Xem trước</button>
+      <button class="left-btn" [ngClass]="isLeftVisited ? 'btn-checked' : 'btn-normal'"
+              (click)="checkLeftVisited()">Thiết kế
+      </button>
+      <button class="right-btn" [ngClass]="isRightVisited ? 'btn-checked' : 'btn-normal'"
+              (click)="checkRightVisited()">Xem trước
+      </button>
     </div>
     <div class="round-button-wrapper">
-      <button
-        class="round-btn white-btn"
-        [ngStyle]="{
+      <div (click)="changeToCoreWhiteShirt()">
+        <button
+          class="round-btn white-btn"
+          [ngStyle]="{
           border:
             firstResult.shirtColor === 'white'
               ? '4px solid #808080'
               : '1px solid black'
         }"
-        (click)="changeShirtColor('white')"
-      ></button>
-      <button
-        class="round-btn blue-btn"
-        [ngStyle]="{
+          (click)="changeShirtColor('white')"
+        ></button>
+      </div>
+      <div (click)="changeToCoreBlueShirt()">
+        <button
+          class="round-btn blue-btn"
+          [ngStyle]="{
           border:
             firstResult.shirtColor === 'blue'
               ? '4px solid #808080'
               : '1px solid black'
         }"
-        (click)="changeShirtColor('blue')"
-      ></button>
+          (click)="changeShirtColor('blue')"
+        ></button>
+      </div>
       <button
         class="round-btn black-btn"
         [ngStyle]="{
@@ -109,7 +109,7 @@
     <span class="small-title">Tải lên thiết kế</span>
     <div class="type-div" (click)="fileInput.click()">
       <button *ngIf="!imageOutput" class="upload-button">
-        <img src="assets/images/plus.svg" />
+        <img src="assets/images/plus.svg"/>
       </button>
       <img *ngIf="imageOutput" [src]="imageOutput" class="upload-button" />
 
@@ -145,24 +145,18 @@
     <hr class="line-read-design" />
     <span class="small-title">Thiết kế có sẵn</span>
     <div class="color-div">
-      <button class="round-button">
-        <label>Tìm kiếm tên thiết kế</label>
-        <img src="assets/images/search.svg" />
-      </button>
+      <input type="text" class="round-button search-icon" placeholder="Tìm kiếm tên thiết kế"
+             (keyup.enter)="searchDesignsByTags($event)">
     </div>
     <div class="design-card-div">
-      <div class="design-item">
-        <app-design-card></app-design-card>
-      </div>
-      <div class="design-item">
-        <app-design-card></app-design-card>
-      </div>
-      <div class="design-item">
-        <app-design-card></app-design-card>
+      <div *ngFor="let design of designCards">
+        <div class="design-item">
+          <app-design-card [design]="design" (click)="replaceDesignImage(design)"></app-design-card>
+        </div>
       </div>
     </div>
     <div class="action-div">
-      <button class="action-common back">Trở về</button>
+      <button class="action-common back"></button>
       <button
         class="action-common continue"
         routerLink="quantity-selection"

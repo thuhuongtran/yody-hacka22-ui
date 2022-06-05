@@ -18,10 +18,9 @@ export class YodyServiceService {
       .pipe(tap((_) => console.log()));
   }
 
-  searchDesignsByTags(tag: string[]): Observable<Design[]> {
-    const params = new HttpParams().append('tags', tag.toString());
+  searchDesignsByTags(tag: string): Observable<Design[]> {
     return this.http
-      .get<Design[]>(YodyServiceService.apiURL + "search-decor-image", {params})
+      .get<Design[]>(YodyServiceService.apiURL + "design/search-decor-image?tags="+ tag)
   }
 
   searchCities(): Observable<String[]> {
@@ -37,5 +36,10 @@ export class YodyServiceService {
   searchWards(): Observable<String[]> {
     return this.http
       .get<String[]>(YodyServiceService.apiURL + "wards")
+  }
+
+  searchDesigns(): Observable<Design[]> {
+    return this.http
+      .get<Design[]>(YodyServiceService.apiURL + "design/list")
   }
 }
