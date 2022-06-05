@@ -27,9 +27,15 @@
     <hr/>
     <span class="small-title">Loại áo</span>
     <div class="size-num">
-      <button class="size-button">T-shirt</button>
-      <button class="size-button">Hoodie</button>
-      <button class="size-button">Polo</button>
+      <button class="size-button" (click)="changeShirtType('T-shirt')">
+        T-shirt
+      </button>
+      <button class="size-button" (click)="changeShirtType('Hoddie')">
+        Hoodie
+      </button>
+      <button class="size-button" (click)="changeShirtType('Polo')">
+        Polo
+      </button>
     </div>
     <hr/>
     <span class="small-title">Tải lên thiết kế</span>
@@ -60,10 +66,13 @@
     </div>
     <div class="action-div">
       <button class="action-common back">Trở về</button>
-      <button routerLink="/quantity-selection" class="action-common continue">
+      <button
+        class="action-common continue"
+        routerLink="/quantity-selection"
+        [state]="shirt"
+      >
         Tiếp tục
       </button>
-      <button class="action-common continue" (click)="clickOnContinue()">Tiếp tục</button>
     </div>
   </div>
 </div>
