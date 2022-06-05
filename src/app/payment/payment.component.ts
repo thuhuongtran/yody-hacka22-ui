@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,9 +10,16 @@ import Swal from 'sweetalert2';
 export class PaymentComponent implements OnInit {
   defaultChoice: string = '';
 
-  constructor(private route: Router) {}
+  previousResponse: any;
 
-  ngOnInit(): void {}
+  constructor(private route: Router, private dataRoute: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.dataRoute.paramMap.subscribe(() => {
+      console.log(window.history.state);
+      this.previousResponse = window.history.state;
+    });
+  }
 
   emitChoice(choice: string) {
     this.defaultChoice = choice;

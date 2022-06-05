@@ -2,13 +2,25 @@
 <div class="card-wrapper">
   <div class="left-div">
     <hr />
-    <app-cart-item></app-cart-item>
+    <div *ngFor="let product of previousResponse.sizes">
+      <app-cart-item
+        [item]="product.id"
+        [size]="product.size"
+        [quantity]="product.quantity"
+        [type]="previousResponse.shirtType"
+        [color]="previousResponse.shirtColor"
+      ></app-cart-item>
+    </div>
   </div>
   <div class="right-div">
     <span class="txt-intro">Tổng thanh toán (2 sản phẩm):</span>
     <span class="txt-total-cost">960.000đ</span>
     <span class="txt-detail">* Tiền ship sẽ tính trong trang thanh toán</span>
-    <button class="btn-checkout" routerLink="/payment">
+    <button
+      class="btn-checkout"
+      routerLink="/payment"
+      [state]="previousResponse"
+    >
       <span>Thanh toán</span>
     </button>
   </div>

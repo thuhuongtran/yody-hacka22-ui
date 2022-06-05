@@ -1,16 +1,20 @@
 <div class="card-item-wrapper">
   <img src="assets/images/cart-item-thumnail.png" />
   <div class="item-info">
-    <span class="item-info-title">Bla bla</span>
+    <span class="item-info-title"
+      >Sản phẩm {{ item }} - Áo {{ getColor(color) }}
+    </span>
     <span class="item-info-detail-wrapper">
-      <span class="size-txt">M</span>
+      <span class="size-txt">{{ getSize(size) }} </span>
       <div class="dot-div"></div>
-      <span class="type-txt">Polo</span>
+      <span class="type-txt">{{ type }}</span>
     </span>
   </div>
   <div class="right-content-div">
-    <span class="txt-num">x2</span>
+    <span class="txt-num">x{{ quantity }}</span>
     <span class="txt-price">300.000đ</span>
   </div>
 </div>
 <hr />
+
+

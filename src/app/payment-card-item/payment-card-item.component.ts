@@ -1,15 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-payment-card-item',
   templateUrl: './payment-card-item.component.html',
-  styleUrls: ['./payment-card-item.component.scss']
+  styleUrls: ['./payment-card-item.component.scss'],
 })
 export class PaymentCardItemComponent implements OnInit {
+  @Input() item = '';
+  @Input() size = '';
+  @Input() type = '';
+  @Input() quantity = '';
+  @Input() color = '';
 
-  constructor() { }
-
-  ngOnInit(): void {
+  getSize(size: string) {
+    switch (size) {
+      case 'lnam':
+        return 'L Nam';
+      case 'mnam':
+        return 'M Nam';
+      case 'lnu':
+        return 'L Nữ';
+      case 'mnu':
+        return 'M Nữ';
+      default:
+        return '';
+    }
   }
 
+  getColor(color: string) {
+    switch (color) {
+      case 'blue':
+        return 'Xanh';
+      case 'black':
+        return 'Đen';
+      case 'white':
+        return 'Trắng';
+      default:
+        return '';
+    }
+  }
+
+  constructor() {}
+
+  ngOnInit(): void {}
 }

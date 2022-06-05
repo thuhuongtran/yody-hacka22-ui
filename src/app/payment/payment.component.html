@@ -210,8 +210,15 @@
   </div>
   <div class="right-options-wrapper" style="width: 34%">
     <span class="medium-title"><b>Đơn hàng của bạn</b></span>
-    <app-payment-card-item></app-payment-card-item>
-
+    <div *ngFor="let product of previousResponse.sizes">
+      <app-payment-card-item
+        [item]="product.id"
+        [size]="product.size"
+        [quantity]="product.quantity"
+        [type]="previousResponse.shirtType"
+        [color]="previousResponse.shirtColor"
+      ></app-payment-card-item>
+    </div>
     <div class="action-div">
       <p style="text-align: center"><span>Tổng tiền cần thanh toán</span></p>
       <p style="text-align: center">
