@@ -11,7 +11,7 @@ export class PaymentCardItemComponent implements OnInit {
   @Input() type = '';
   @Input() quantity = 0;
   @Input() color = '';
-
+  @Input() imageOutput = '';
   getSize(size: string) {
     switch (size) {
       case 'lnam':
@@ -31,7 +31,7 @@ export class PaymentCardItemComponent implements OnInit {
     switch (type) {
       case 'Polo':
         return 170000;
-      case 'T-Shirt':
+      case 'T-shirt':
         return 150000;
       case 'Hoddie':
         return 165000;
@@ -57,8 +57,7 @@ export class PaymentCardItemComponent implements OnInit {
     }
   }
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }

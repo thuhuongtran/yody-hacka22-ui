@@ -16,7 +16,7 @@ export class FirstCorePageComponent implements OnInit {
 
   firstResult: any;
 
-  price: string = '150.000';
+  price: string = '150k';
 
   constructor(
     private yodyService: YodyServiceService,
@@ -41,7 +41,7 @@ export class FirstCorePageComponent implements OnInit {
   changeShirtType(type: string) {
     this.firstResult.shirtType = type;
     this.price =
-      type === 'T-shirt' ? '150.000' : type === 'Polo' ? '170.000' : '165.000';
+      type === 'T-shirt' ? '150k' : type === 'Polo' ? '170k' : '165k';
   }
 
   changeShirtColor(color: string) {
@@ -60,6 +60,7 @@ export class FirstCorePageComponent implements OnInit {
 
       reader.onload = (event) => {
         this.imageOutput = event.target?.result;
+        this.firstResult.yourDesign = this.imageOutput;
       };
     }
     let formData: FormData = new FormData();
@@ -71,6 +72,18 @@ export class FirstCorePageComponent implements OnInit {
     //   console.log(response);
     //   this.firstPage.yourDesign = response.xx;
     // });
+  }
+
+  formatBytes(bytes: any, decimals = 2) {
+    if (bytes === 0) return '0 Bytes';
+
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 
   getDesigns(tags: string[]) {

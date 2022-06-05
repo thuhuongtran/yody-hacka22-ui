@@ -1,7 +1,8 @@
 .template-image {
   width: 60%;
   height: 100%;
-  background-color: #F6F6F9;
+  position: relative;
+  background-color: #f6f6f9;
   margin: 0;
 
   img {
@@ -29,7 +30,7 @@
 
   .small-title {
     margin-top: 10px;
-    font-family: 'SVN-Gilroy';
+    font-family: "SVN-Gilroy";
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -65,7 +66,7 @@ hr {
   font-weight: 400;
   font-size: 20px;
   line-height: 28px;
-  font-family: 'SVN-Gilroy';
+  font-family: "SVN-Gilroy";
   background-color: white;
   margin-right: 10px;
   margin-top: 20px;
@@ -88,8 +89,7 @@ hr {
 }
 
 .right-img {
-  margin-left: auto;
-  margin-right: 120px;
+  margin-left: 110px;
 }
 
 .line-read-design {
@@ -105,11 +105,11 @@ hr {
   border-radius: 72px;
   margin-top: 10px;
   background-color: white;
-  font-family: 'SVN-Gilroy';
+  font-family: "SVN-Gilroy";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  color: #B3B3B3;
+  color: #b3b3b3;
   text-align: left;
   padding-left: 20px;
 
@@ -144,7 +144,7 @@ hr {
   width: 115px;
   height: 48px;
   border-radius: 2px;
-  font-family: 'SVN-Gilroy';
+  font-family: "SVN-Gilroy";
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -157,7 +157,7 @@ hr {
 }
 
 .continue {
-  background-color: #2A2A86;
+  background-color: #2a2a86;
   margin-left: 180px;
   color: white;
 }
@@ -187,7 +187,8 @@ hr {
   margin-top: 20px;
 }
 
-.front-shirt:hover, .back-shirt:hover {
+.front-shirt:hover,
+.back-shirt:hover {
   background-color: rgba(42, 42, 134, 0.09);
 }
 
@@ -201,22 +202,21 @@ hr {
   button {
     width: 134px;
     height: 48px;
-    border: 1px solid #2A2A86;
-    font-family: 'SVN-Gilroy';
+    border: 1px solid #2a2a86;
+    font-family: "SVN-Gilroy";
     font-style: normal;
     font-weight: 510;
     font-size: 20px;
   }
 
   .left-btn {
-    background-color:  #2A2A86;
+    background-color: #2a2a86;
     color: white;
   }
 
   .right-btn {
     background-color: white;
   }
-
 }
 
 .round-button-wrapper {
@@ -242,7 +242,7 @@ hr {
 }
 
 .blue-btn {
-  background-color: #0038FF;
+  background-color: #0038ff;
 }
 
 .black-btn {
@@ -253,13 +253,13 @@ hr {
   display: flex;
   flex-direction: row;
   position: absolute;
-  transform: translate(400%, 150%);
-  -ms-transform: translate(400%, 150%);
+  right: 5%;
+  top: 5%;
 
   .txt-price {
     font-weight: 700;
     font-size: 34px;
-    color: #0038FF;
+    color: #0038ff;
   }
 
   .txt-detail {
@@ -269,7 +269,6 @@ hr {
 }
 
 .txt-detail {
-
 }
 
 .main-img {

@@ -93,7 +93,7 @@
         dẫn chọn size</span
       >
     </div>
-    <div *ngIf="upsaleStatus === 'standard'">
+    <div *ngIf="pageResult.upsale === 'standard'">
       <div *ngFor="let quantitySize of pageResult.sizes">
         <div class="size-num">
           <div class="input-select-size">
@@ -132,7 +132,7 @@
       </p>
     </div>
 
-    <div *ngIf="upsaleStatus === 'family'" class="upsale-div">
+    <div *ngIf="pageResult.upsale === 'family'" class="upsale-div">
       <span class="small-title" style="color: #2a2a86"
         >Ưu đãi cho gia đình (20%)</span
       >
@@ -141,194 +141,111 @@
         (click)="backToStandard()"
         ><b>X</b></span
       >
-      <div class="size-num">
-        <div class="input-select-size">
-          <select class="size-select" name="cars" id="cars">
-            <option value="volvo">M nam</option>
-            <option value="saab">M nữ</option>
-            <option value="opel">L nam</option>
-            <option value="audi">L nữ</option>
-          </select>
-          <input
-            type="text"
-            id="fname"
-            value="1"
-            name="fname"
-            class="size-input"
-          />
-        </div>
-      </div>
-
-      <div class="size-num">
-        <div class="input-select-size">
-          <select class="size-select" name="cars" id="cars">
-            <option value="volvo">M nam</option>
-            <option value="saab">M nữ</option>
-            <option value="opel">L nam</option>
-            <option value="audi">L nữ</option>
-          </select>
-          <input
-            type="text"
-            id="fname"
-            value="1"
-            name="fname"
-            class="size-input"
-          />
-        </div>
-      </div>
-
-      <div class="size-num" style="background-color: transparent !important">
-        <div class="input-select-size">
-          <select class="size-select" name="cars" id="cars">
-            <option value="volvo">M nam</option>
-            <option value="saab">M nữ</option>
-            <option value="opel">L nam</option>
-            <option value="audi">L nữ</option>
-          </select>
-          <input
-            type="text"
-            id="fname"
-            value="1"
-            name="fname"
-            class="size-input"
-          />
+      <div *ngFor="let quantitySize of pageResult.sizes">
+        <div class="size-num">
+          <div class="input-select-size">
+            <select
+              class="size-select"
+              name="cars"
+              id="cars"
+              [value]="quantitySize.size"
+              (change)="onSizeChange($event, quantitySize.id)"
+            >
+              <option value="" selected>Size --</option>
+              <option value="mnam">M nam</option>
+              <option value="mnu">M nữ</option>
+              <option value="lnam">L nam</option>
+              <option value="lnu">L nữ</option>
+            </select>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              [value]="quantitySize.quantity"
+              (change)="onQuantityChange($event, quantitySize.id)"
+              class="size-input"
+              readonly
+              placeholder="Nhập số lượng"
+            />
+          </div>
         </div>
       </div>
     </div>
 
-    <div *ngIf="upsaleStatus === 'couple'" class="upsale-div">
+    <div *ngIf="pageResult.upsale === 'couple'" class="upsale-div">
       <span class="small-title" style="color: #2a2a86"
         >Ưu đãi cho cặp đôi (10%)</span
       >
-      <div class="size-num">
-        <div class="input-select-size">
-          <select class="size-select" name="cars" id="cars">
-            <option value="volvo">M nam</option>
-            <option value="saab">M nữ</option>
-            <option value="opel">L nam</option>
-            <option value="audi">L nữ</option>
-          </select>
-          <input
-            type="text"
-            id="fname"
-            value="1"
-            name="fname"
-            class="size-input"
-          />
-        </div>
-      </div>
-
-      <div class="size-num" style="background-color: transparent !important">
-        <div class="input-select-size">
-          <select class="size-select" name="cars" id="cars">
-            <option value="volvo">M nam</option>
-            <option value="saab">M nữ</option>
-            <option value="opel">L nam</option>
-            <option value="audi">L nữ</option>
-          </select>
-          <input
-            type="text"
-            id="fname"
-            value="1"
-            name="fname"
-            class="size-input"
-          />
+      <span
+        style="position: absolute; right: 10%; top: 8%; cursor: pointer"
+        (click)="backToStandard()"
+        ><b>X</b></span
+      >
+      <div *ngFor="let quantitySize of pageResult.sizes">
+        <div class="size-num">
+          <div class="input-select-size">
+            <select
+              class="size-select"
+              name="cars"
+              id="cars"
+              [value]="quantitySize.size"
+              (change)="onSizeChange($event, quantitySize.id)"
+            >
+              <option value="" selected>Size --</option>
+              <option value="mnam">M nam</option>
+              <option value="mnu">M nữ</option>
+              <option value="lnam">L nam</option>
+              <option value="lnu">L nữ</option>
+            </select>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              readonly
+              [value]="quantitySize.quantity"
+              (change)="onQuantityChange($event, quantitySize.id)"
+              class="size-input"
+              placeholder="Nhập số lượng"
+            />
+          </div>
         </div>
       </div>
     </div>
 
-    <div *ngIf="upsaleStatus === 'group'" class="upsale-div">
+    <div *ngIf="pageResult.upsale === 'group'" class="upsale-div">
       <span class="small-title" style="color: #2a2a86">Ưu đãi nhóm (30%)</span>
-      <div class="size-num">
-        <div class="input-select-size">
-          <select class="size-select" name="cars" id="cars">
-            <option value="volvo">M nam</option>
-            <option value="saab">M nữ</option>
-            <option value="opel">L nam</option>
-            <option value="audi">L nữ</option>
-          </select>
-          <input
-            type="text"
-            id="fname"
-            value="1"
-            name="fname"
-            class="size-input"
-          />
+      <span
+        style="position: absolute; right: 10%; top: 8%; cursor: pointer"
+        (click)="backToStandard()"
+        ><b>X</b></span
+      >
+      <div *ngFor="let quantitySize of pageResult.sizes">
+        <div class="size-num">
+          <div class="input-select-size">
+            <select
+              class="size-select"
+              name="cars"
+              id="cars"
+              (change)="onSizeChange($event, quantitySize.id)"
+            >
+              <option value="" selected>Size --</option>
+              <option value="mnam">M nam</option>
+              <option value="mnu">M nữ</option>
+              <option value="lnam">L nam</option>
+              <option value="lnu">L nữ</option>
+            </select>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              (change)="onQuantityChange($event, quantitySize.id)"
+              class="size-input"
+              placeholder="Nhập số lượng"
+            />
+          </div>
         </div>
       </div>
-
-      <div class="size-num" style="background-color: transparent !important">
-        <div class="input-select-size">
-          <select class="size-select" name="cars" id="cars">
-            <option value="volvo">M nam</option>
-            <option value="saab">M nữ</option>
-            <option value="opel">L nam</option>
-            <option value="audi">L nữ</option>
-          </select>
-          <input
-            type="text"
-            id="fname"
-            value="1"
-            name="fname"
-            class="size-input"
-          />
-        </div>
-      </div>
-
-      <div class="size-num" style="background-color: transparent !important">
-        <div class="input-select-size">
-          <select class="size-select" name="cars" id="cars">
-            <option value="volvo">M nam</option>
-            <option value="saab">M nữ</option>
-            <option value="opel">L nam</option>
-            <option value="audi">L nữ</option>
-          </select>
-          <input
-            type="text"
-            id="fname"
-            value="1"
-            name="fname"
-            class="size-input"
-          />
-        </div>
-      </div>
-
-      <div class="size-num" style="background-color: transparent !important">
-        <div class="input-select-size">
-          <select class="size-select" name="cars" id="cars">
-            <option value="volvo">M nam</option>
-            <option value="saab">M nữ</option>
-            <option value="opel">L nam</option>
-            <option value="audi">L nữ</option>
-          </select>
-          <input
-            type="text"
-            id="fname"
-            value="1"
-            name="fname"
-            class="size-input"
-          />
-        </div>
-      </div>
-
-      <div class="size-num" style="background-color: transparent !important">
-        <div class="input-select-size">
-          <select class="size-select" name="cars" id="cars">
-            <option value="volvo">M nam</option>
-            <option value="saab">M nữ</option>
-            <option value="opel">L nam</option>
-            <option value="audi">L nữ</option>
-          </select>
-          <input
-            type="text"
-            id="fname"
-            value="1"
-            name="fname"
-            class="size-input"
-          />
-        </div>
-      </div>
-      <p style="color: #fcaf17; cursor: pointer">
+      <p style="color: #fcaf17; cursor: pointer" (click)="addSize()">
         <span>+ Thêm size</span>
       </p>
     </div>

@@ -14,15 +14,18 @@
             <input
               type="text"
               id="fname"
+              [(ngModel)]="fullName"
+              (change)="fullName = fullName.trim()"
               name="fname"
               style="width: 262.5px"
               class="size-input"
               placeholder="Họ và tên"
             />
             <input
-              type="text"
-              id="fname"
+              type="email"
               name="fname"
+              [(ngModel)]="email"
+              (change)="email = email.trim()"
               style="width: 262.5px"
               class="size-input"
               placeholder="Email"
@@ -36,6 +39,7 @@
                 <input
                   type="radio"
                   id="ritema"
+                  (click)="gender = 'male'"
                   name="ritem"
                   value="ropt1"
                   checked
@@ -44,7 +48,13 @@
               </div>
 
               <div class="radio-item">
-                <input type="radio" id="ritemb" name="ritem" value="ropt2" />
+                <input
+                  type="radio"
+                  id="ritemb"
+                  name="ritem"
+                  value="ropt2"
+                  (click)="gender = 'female'"
+                />
                 <label for="ritemb"><span>Nữ</span></label>
               </div>
             </div>
@@ -54,6 +64,8 @@
               id="fname"
               name="fname"
               style="width: 262.5px"
+              [(ngModel)]="phone"
+              (change)="phone = phone.trim()"
               class="size-input"
               placeholder="Số điện thoại"
             />
@@ -74,6 +86,8 @@
               name="fname"
               style="width: 366.5px"
               class="size-input"
+              [(ngModel)]="cardNumber"
+              (change)="cardNumber = cardNumber.trim()"
               placeholder="Card number"
             />
             <input
@@ -82,6 +96,8 @@
               name="fname"
               style="width: 170.5px; margin-left: 49px"
               class="size-input"
+              [(ngModel)]="cvc"
+              (change)="cvc = cvc.trim()"
               placeholder="CVC"
             />
           </div>
@@ -91,28 +107,23 @@
             name="fname"
             style="width: 636px"
             class="size-input"
+            [(ngModel)]="holder"
+            (change)="holder = holder.trim().toUpperCase()"
             placeholder="Card holder name"
           />
         </div>
         <span style="margin-right: 10px; font-size: 20px">Expiration date</span>
-        <select class="size-select" name="cars" id="cars">
-          <option selected value="">Ngày</option>
-          <option value="volvo">M nam</option>
-          <option value="saab">M nữ</option>
-          <option value="opel">L nam</option>
-          <option value="audi">L nữ</option>
-        </select>
-        <select class="size-select" name="cars" id="cars">
+        <select class="size-select" name="cars" [(ngModel)]="exp_month">
           <option selected value="">Tháng</option>
-          <option value="saab">M nữ</option>
-          <option value="opel">L nam</option>
-          <option value="audi">L nữ</option>
+          <option *ngFor="let month of monthRange" [value]="month">
+            {{ month }}
+          </option>
         </select>
-        <select class="size-select" name="cars" id="cars">
+        <select class="size-select" name="cars" [(ngModel)]="exp_year">
           <option selected value="">Năm</option>
-          <option value="saab">M nữ</option>
-          <option value="opel">L nam</option>
-          <option value="audi">L nữ</option>
+          <option *ngFor="let year of yearRange" [value]="year">
+            {{ year }}
+          </option>
         </select>
       </div>
       <br />
@@ -127,36 +138,35 @@
             <select
               class="size-select"
               name="cars"
-              id="cars"
+              [(ngModel)]="selectedCity"
               style="width: 100%; font-size: 16px"
             >
               <option selected value="">Tỉnh/Thành phố</option>
-              <option value="volvo">M nam</option>
-              <option value="saab">M nữ</option>
-              <option value="opel">L nam</option>
-              <option value="audi">L nữ</option>
+              <option *ngFor="let city of cities" [value]="city">
+                {{ city }}
+              </option>
             </select>
             <select
               class="size-select"
               name="cars"
-              id="cars"
+              [(ngModel)]="selectedDistrict"
               style="width: 100%; font-size: 16px"
             >
               <option selected value="">Quận/Huyện</option>
-              <option value="saab">M nữ</option>
-              <option value="opel">L nam</option>
-              <option value="audi">L nữ</option>
+              <option *ngFor="let district of districts" [value]="district">
+                {{ district }}
+              </option>
             </select>
             <select
               class="size-select"
               name="cars"
-              id="cars"
+              [(ngModel)]="selectedWard"
               style="width: 100%; font-size: 16px"
             >
               <option selected value="">Phường/Xã</option>
-              <option value="saab">M nữ</option>
-              <option value="opel">L nam</option>
-              <option value="audi">L nữ</option>
+              <option *ngFor="let ward of wards" [value]="ward">
+                {{ ward }}
+              </option>
             </select>
           </div>
         </div>
@@ -196,13 +206,15 @@
           style="display: flex; align-items: center; margin-left: 24px"
         >
           <img src="assets/images/location.png" style="margin-right: 6px" />
-          <span
-            ><u
-              ><b
-                >308 Phan Trọng Tuệ, Xã Thanh Liệt, Huyện Thanh Trì, TP Hà
-                Nội</b
-              ></u
-            ></span
+          <a class="map-link" href="https://www.google.com/maps" target="_blank"
+            ><span
+              ><u
+                ><b
+                  >308 Phan Trọng Tuệ, Xã Thanh Liệt, Huyện Thanh Trì, TP Hà
+                  Nội</b
+                ></u
+              ></span
+            ></a
           >
         </p>
       </div>
@@ -216,8 +228,14 @@
         [size]="product.size"
         [quantity]="product.quantity"
         [type]="previousResponse.shirtType"
+        [imageOutput]="previousResponse.yourDesign"
         [color]="previousResponse.shirtColor"
       ></app-payment-card-item>
+    </div>
+    <div class="vDivider"></div>
+    <div class="shipping-fee">
+      <span>Phí vận chuyển</span>
+      <span class="txt-price">32.000đ</span>
     </div>
     <div class="action-div">
       <p style="text-align: center"><span>Tổng tiền cần thanh toán</span></p>

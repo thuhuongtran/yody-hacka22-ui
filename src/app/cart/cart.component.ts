@@ -38,7 +38,7 @@ export class CartComponent implements OnInit {
     switch (type) {
       case 'Polo':
         return 170000;
-      case 'T-Shirt':
+      case 'T-shirt':
         return 150000;
       case 'Hoddie':
         return 165000;

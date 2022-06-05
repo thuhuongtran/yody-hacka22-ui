@@ -44,9 +44,28 @@ export class QuantitySelectionComponent implements OnInit {
 
   switchUpsaleStatus(status: string): void {
     this.pageResult.upsale = status;
+    this.pageResult.sizes = [];
+    if (status === 'family') {
+      this.addSize('mnam', 1);
+      this.addSize('mnu', 1);
+      this.addSize('', 1);
+    }
+    if (status === 'couple') {
+      this.addSize('mnam', 1);
+      this.addSize('mnu', 1);
+    }
+    if (status == 'group') {
+      this.addSize();
+      this.addSize();
+      this.addSize();
+      this.addSize();
+      this.addSize();
+      this.addSize();
+    }
   }
 
   backToStandard() {
+    this.pageResult.sizes = [];
     this.pageResult.upsale = 'standard';
   }
 
@@ -58,11 +77,11 @@ export class QuantitySelectionComponent implements OnInit {
     this.pageResult.sizes[id - 1].quantity = event.target.value;
   }
 
-  addSize() {
+  addSize(size = '', quantity = 0) {
     this.pageResult.sizes.push({
       id: this.pageResult.sizes.length + 1,
-      size: '',
-      quantity: 0,
+      size,
+      quantity,
     });
   }
 

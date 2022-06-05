@@ -12,8 +12,9 @@ import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentCardItemComponent } from './payment-card-item/payment-card-item.component';
-import {HttpClientModule} from "@angular/common/http";
-import {AngularDraggableModule} from "angular2-draggable";
+import { HttpClientModule } from '@angular/common/http';
+import { AngularDraggableModule } from 'angular2-draggable';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {AngularDraggableModule} from "angular2-draggable";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AngularDraggableModule
+    AngularDraggableModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
