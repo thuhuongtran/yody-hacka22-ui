@@ -21,7 +21,7 @@ export class QuantitySelectionComponent implements OnInit {
 
   quantitySizes: QuantitySize[] = [];
 
-  previousPage = {};
+  previousPage: any;
 
   secondPage = {
     upsale: 'standard',
@@ -33,6 +33,7 @@ export class QuantitySelectionComponent implements OnInit {
   ngOnInit(): void {
     this.dataRoute.paramMap.subscribe(() => {
       console.log(window.history.state);
+      this.previousPage = window.history.state;
       this.pageResult = {
         ...window.history.state,
         upsale: 'standard',

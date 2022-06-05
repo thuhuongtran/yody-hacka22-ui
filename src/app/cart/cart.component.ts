@@ -11,43 +11,59 @@ export class CartComponent implements OnInit {
 
   products = [];
 
+  sum = 0;
+  sumStr = '';
+
   previousResponse: any;
 
   ngOnInit(): void {
     this.dataRoute.paramMap.subscribe(() => {
       this.previousResponse = window.history.state;
+      console.log(this.previousResponse);
+
+      let price = this.getPriceByType(this.previousResponse.shirtType);
+      this.previousResponse.sizes.forEach((e: any) => {
+        this.sum += price * parseInt(e.quantity);
+      });
+
+      this.sumStr = this.numberWithCommas(this.sum);
     });
+  }
+
+  numberWithCommas(x: number) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
+  getPriceByType(type: string) {
+    switch (type) {
+      case 'Polo':
+        return 170000;
+      case 'T-Shirt':
+        return 150000;
+      case 'Hoddie':
+        return 165000;
+      default:
+        return 0;
+    }
   }
 }
 
-/*
-{
-    "orderDate": "2022-06-04",
-    "customerId": "1",
-    "paymentMethod": "CARD",
-    "shippingFee": 20000,
-    "totalCost": 1000000,
-    "orderItemList": [
-        {
-            "designShirt" : {
-                "id" : 1,
-                "title" : "Camnoup",
-                "templateShirt":{
-                    "id" : "1",
-                    "type" : "POLO",
-                    "color" : "BLUE",
-                    "templateImageLink" : "https://bizweb.sapocdn.net/100/438/408/products/tsm5231-den-4.jpg?v=1652520442737",
-                     "size": "S"                },
-                "design": {
-                  "image": "base",
-                  ""
-                },
-                "type" : "buydesign",
-                 "image" : 
-            },
-            "price":1000000,
-            "count" : 10
-        }
-    ]
-}
-*/
+// {
+//   "shirtType": "Polo",
+//   "shirtColor": "black",
+//   "yourDesign": null,
+//   "navigationId": 5,
+//   "upsale": "standard",
+//   "sizes": [
+//       {
+//           "id": 1,
+//           "size": "mnu",
+//           "quantity": "45"
+//       },
+//       {
+//           "id": 2,
+//           "size": "mnam",
+//           "quantity": "12"
+//       }
+//   ]
+// }

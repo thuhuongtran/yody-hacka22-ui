@@ -12,9 +12,9 @@
   </div>
   <div class="right-content-div">
     <span class="txt-num">x{{ quantity }}</span>
-    <span class="txt-price">300.000đ</span>
+    <span class="txt-price">
+      {{ numberWithCommas(getPriceByType(type) * quantity) }} đ</span
+    >
   </div>
 </div>
 <hr />
-
-

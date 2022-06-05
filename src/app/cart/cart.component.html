@@ -13,8 +13,10 @@
     </div>
   </div>
   <div class="right-div">
-    <span class="txt-intro">Tổng thanh toán (2 sản phẩm):</span>
-    <span class="txt-total-cost">960.000đ</span>
+    <span class="txt-intro"
+      >Tổng thanh toán ( {{ previousResponse.sizes.length }} sản phẩm):</span
+    >
+    <span class="txt-total-cost">{{ sumStr }}đ</span>
     <span class="txt-detail">* Tiền ship sẽ tính trong trang thanh toán</span>
     <button
       class="btn-checkout"

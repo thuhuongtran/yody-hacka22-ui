@@ -12,33 +12,44 @@ export class FirstCorePageComponent implements OnInit {
   shirtColor: string = 'white';
   yourDesign: any;
   imageOutput: any;
-  coreShirtImg: any
+  coreShirtImg: any;
 
-  firstPage = {
-    shirtType: 'T-shirt',
-    shirtColor: 'white',
-    yourDesign: null,
-  };
+  firstResult: any;
+
+  price: string = '150.000';
 
   constructor(
     private yodyService: YodyServiceService,
     private dataRoute: ActivatedRoute
   ) {
-    this.coreShirtImg = "assets/images/front-shirt.png";
+    this.coreShirtImg = 'assets/images/front-shirt.png';
+    this.firstResult = {
+      shirtType: 'T-shirt',
+      shirtColor: 'white',
+      yourDesign: null,
+    };
   }
 
   ngOnInit(): void {
     this.dataRoute.paramMap.subscribe(() => {
-      this.firstPage = window.history.state;
+      if (window.history.state.shirtType && window.history.state.shirtColor) {
+        this.firstResult = window.history.state;
+      }
     });
   }
 
   changeShirtType(type: string) {
-    this.firstPage.shirtType = type;
+    this.firstResult.shirtType = type;
+    this.price =
+      type === 'T-shirt' ? '150.000' : type === 'Polo' ? '170.000' : '165.000';
   }
 
   changeShirtColor(color: string) {
-    this.firstPage.shirtColor = color;
+    this.firstResult.shirtColor = color;
+  }
+
+  showRes() {
+    console.log(this.firstResult);
   }
 
   handleFileInput(event: any) {
@@ -76,10 +87,10 @@ export class FirstCorePageComponent implements OnInit {
   // }
 
   changeToBackShirt() {
-    this.coreShirtImg = "assets/images/back-shirt.png"
+    this.coreShirtImg = 'assets/images/back-shirt.png';
   }
 
   changeToFrontShirt() {
-    this.coreShirtImg = "assets/images/front-shirt.png"
+    this.coreShirtImg = 'assets/images/front-shirt.png';
   }
 }
