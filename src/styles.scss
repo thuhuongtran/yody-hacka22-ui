@@ -5,3 +5,9 @@ span {
 button {
   cursor: pointer;
 }
+
+button:active, button:hover {
+  background-color: #2A2A86 !important;
+  color: white;
+}
+

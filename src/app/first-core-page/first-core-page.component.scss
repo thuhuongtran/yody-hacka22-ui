@@ -177,18 +177,26 @@ hr {
 }
 
 .front-shirt {
+  width: 56px;
+  height: 71px;
 }
 
 .back-shirt {
+  width: 56px;
+  height: 71px;
   margin-top: 20px;
+}
+
+.front-shirt:hover, .back-shirt:hover {
+  background-color: rgba(42, 42, 134, 0.09);
 }
 
 .group-design-button {
   display: flex;
   flex-direction: row;
   position: absolute;
-  transform: translate(100%, -350%);
-  -ms-transform: translate(100%, -350%);
+  transform: translate(116%, -350%);
+  -ms-transform: translate(116%, -350%);
 
   button {
     width: 134px;
@@ -215,8 +223,8 @@ hr {
   display: flex;
   flex-direction: row;
   position: absolute;
-  transform: translate(290%, -390%);
-  -ms-transform: translate(290%, -390%);
+  transform: translate(329%, -390%);
+  -ms-transform: translate(329%, -390%);
   margin: 10px;
 }
 
@@ -262,4 +270,19 @@ hr {
 
 .txt-detail {
 
+}
+
+.main-img {
+  display: block;
+  margin: auto;
+}
+
+.design-img {
+  padding: 10px !important;
+  position: absolute;
+  transform: translate(260%, -230%);
+  display: inline-block;
+  margin: auto;
+  border: 1px dashed black;
+  cursor: pointer;
 }
