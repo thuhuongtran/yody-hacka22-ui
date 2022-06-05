@@ -12,6 +12,7 @@ export class PaymentCardItemComponent implements OnInit {
   @Input() quantity = 0;
   @Input() color = '';
   @Input() imageOutput = '';
+  @Input() imgLink = '';
   getSize(size: string) {
     switch (size) {
       case 'lnam':

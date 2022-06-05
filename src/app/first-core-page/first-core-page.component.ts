@@ -33,6 +33,7 @@ export class FirstCorePageComponent implements OnInit {
     shirtType: 'T-shirt',
     shirtColor: 'white',
     yourDesign: null,
+    imgLink: '',
   };
   designMode: any;
 
@@ -49,6 +50,7 @@ export class FirstCorePageComponent implements OnInit {
       shirtType: 'T-shirt',
       shirtColor: 'white',
       yourDesign: null,
+      imgLink: ''
     };
   }
 
@@ -66,6 +68,7 @@ export class FirstCorePageComponent implements OnInit {
     this.firstResult.shirtType = type;
     this.price =
       type === 'T-shirt' ? '150k' : type === 'Polo' ? '170k' : '165k';
+    this.firstResult.imgLink = this.designImg;
   }
 
   changeShirtColor(color: string) {
@@ -193,5 +196,6 @@ export class FirstCorePageComponent implements OnInit {
   replaceDesignImage(design: Design) {
     this.designImg = undefined;
     this.designImg = design.imageLink;
+    this.firstResult.imgLink = this.designImg;
   }
 }
